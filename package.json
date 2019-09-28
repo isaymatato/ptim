@@ -4,5 +4,8 @@
   "description": "Pivotal Tracker Improved",
   "main": "index.js",
   "author": "Mateo Williford <mateowilliford@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^3.0.2"
+  }
 }
