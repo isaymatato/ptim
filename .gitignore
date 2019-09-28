@@ -1,3 +1,6 @@
+# Config file
+.ptim.conf
+
 # Logs
 logs
 *.log
