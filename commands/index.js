@@ -1,3 +1,4 @@
 module.exports = [
-  require('./config')
+  require('./config'),
+  require('./notifications')
 ]
