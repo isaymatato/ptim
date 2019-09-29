@@ -7,7 +7,10 @@ const api = require('../api/index')
 module.exports = {
   command:'notifications',
   short: 'n',
-  action: async () => {
+  options: [
+    ['-u, --unread', 'only show unread messages']
+  ],
+  action: async (commandObj) => {
     const config = new Config()
     await config.init()
     const apiToken = await config.get('apiToken')
@@ -16,10 +19,14 @@ module.exports = {
     }
     const { notifications } = api(apiToken)
     const n = await notifications()
-    const data = (await notifications())
+    let data = (await notifications())
       .data
       .reverse()
       .map((notification) => new Notification(notification))
+
+    if (commandObj.unread) {
+      data = data.filter(n => !n.read)
+    }
     const unreadCount = data.filter(n => !n.read).length
 
     data.map(d => d.render())
