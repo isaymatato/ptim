@@ -1,6 +1,8 @@
+const path = require('path')
+const appDir = path.dirname(require.main.filename)
 const { pick } = require('ramda')
 const jsonfile = require('jsonfile')
-const configFile = './.ptim.conf'
+const configFile = appDir + '/.ptim.conf'
 const propertyKeys = [
   'apiToken',
   'projectId'
@@ -18,6 +20,7 @@ module.exports = class Config {
 
   async set (property, value) {
     throwIfPropertyInvalid(property)
+    await this.read()
     this.properties[property] = value
     return this.write()
   }
