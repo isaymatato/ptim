@@ -33,15 +33,16 @@ class Notification {
     const datePadding = 36
     const prePad = ' '.repeat(datePadding)
     const d = this.localTimestamp.padEnd(datePadding)
+    const sid = ('#' + this.storyId).padEnd(datePadding)
     if (this.read) {
       console.log(chalk.dim.gray(d + this.storyName))
-      console.log(chalk.dim.gray(prePad + this.message))
+      console.log(chalk.dim.gray(sid + this.message))
       console.log(chalk.dim.underline.gray(this.url))
       console.log('\n\n')
       return
     }
-    console.log(chalk.blue(d) + chalk.white(this.storyName))
-    console.log(prePad + chalk.yellow(this.message))
+    console.log(chalk.blueBright(d) + chalk.white(this.storyName))
+    console.log(chalk.grey(sid) + chalk.yellow(this.message))
     if (this.context) {
       const c = wrap(this.context)
         .split('\n')
@@ -69,6 +70,10 @@ class Notification {
 
   get storyName () {
     return this.data.story.name 
+  }
+
+  get storyId () {
+   return this.data.story.id
   }
 
   get context () {
