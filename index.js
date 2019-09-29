@@ -2,10 +2,15 @@
 const commands = require('./commands')
 const program = require('commander')
 
-commands.forEach(({ command, action }) =>
-  program
-    .command(command)
-    .action(action)
-)
+module.exports = () => {
+  commands.forEach(({ command, action, short }) => {
+    program
+      .command(command)
+      .action(action)
+    if (short) {
+      program.command(short).action(action)
+    }
+  })
 
-program.parse(process.argv)
+  program.parse(process.argv)
+}

@@ -6,6 +6,7 @@ const Config = require('./config/index')
 const api = require('../api/index')
 module.exports = {
   command:'notifications',
+  short: 'n',
   action: async () => {
     const config = new Config()
     await config.init()

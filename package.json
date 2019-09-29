@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "description": "Pivotal Tracker Improved",
   "main": "index.js",
+  "bin": {
+    "ptim": "bin/ptim"
+  },
+  "preferGlobal": true,
   "author": "Mateo Williford <mateowilliford@gmail.com>",
   "license": "MIT",
   "dependencies": {
