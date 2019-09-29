@@ -20,8 +20,11 @@ module.exports = {
       .data
       .reverse()
       .map((notification) => new Notification(notification))
+    const unreadCount = data.filter(n => !n.read).length
 
     data.map(d => d.render())
+    console.log(`${chalk.white.bgRed(` ${unreadCount} `)} unread messages`)
+    console.log('')
   }
 }
 
