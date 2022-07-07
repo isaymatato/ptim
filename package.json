@@ -15,7 +15,7 @@
     "commander": "^3.0.2",
     "https": "^1.0.0",
     "jsonfile": "^5.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ramda": "^0.26.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
